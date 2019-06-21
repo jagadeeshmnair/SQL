@@ -13,6 +13,7 @@ To check access list:
 
 select u.[name] [user_name], r.[name] role_name
 , @@servername as [ServerName], db_name(db_id()) as [DatabaseName]
+,u.[SID]
 from sys.sysusers u 
 join sys.database_role_members rm on rm.member_principal_id = u.uid
 JOIN sys.sysusers r on r.uid = rm.role_principal_id
